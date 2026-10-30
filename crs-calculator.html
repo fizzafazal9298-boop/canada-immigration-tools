@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRS Calculator 2026 — Express Entry Points | NorthEntry</title>
+<meta name="description" content="Free CRS score calculator using the full official points grid — core, spouse, skill transferability and additional points. Updated for the 2025 removal of job-offer points.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Georgia,'Times New Roman',serif;background:#FAF8F2;color:#14161A;line-height:1.65}
+a{color:#A6192E}
+header.top{background:#14161A;color:#FAF8F2;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.brand{font-size:24px;letter-spacing:2px;font-weight:bold;color:#FAF8F2;text-decoration:none}
+.brand span{color:#C9A227}
+nav a{color:#FAF8F2;text-decoration:none;margin-left:18px;font-size:15px}
+nav a:hover{color:#C9A227}
+.wrap{max-width:980px;margin:0 auto;padding:28px 20px 60px}
+h1{font-size:36px;line-height:1.2;margin:14px 0 10px}
+h2{font-size:25px;margin:30px 0 10px;border-bottom:2px solid #C9A227;padding-bottom:5px}
+h3{font-size:19px;margin:20px 0 6px}
+p{margin:8px 0}
+.lede{font-size:18px;color:#333}
+.btn{display:inline-block;background:#A6192E;color:#fff;padding:13px 26px;border-radius:4px;text-decoration:none;font-size:17px;margin:12px 8px 12px 0;border:none;cursor:pointer}
+.btn.gold{background:#C9A227;color:#14161A}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px;margin:20px 0}
+.card{background:#fff;border:1px solid #E3DCC8;border-top:4px solid #A6192E;padding:18px;border-radius:4px}
+.card h3{margin-top:0}
+table{border-collapse:collapse;width:100%;margin:14px 0;background:#fff}
+th,td{border:1px solid #D8D2BE;padding:8px 10px;text-align:left;font-size:15px}
+th{background:#14161A;color:#FAF8F2}
+.note{background:#F3EDD8;border-left:4px solid #C9A227;padding:12px 16px;margin:16px 0;font-size:15px}
+.warn{background:#F9E8E8;border-left:4px solid #A6192E;padding:12px 16px;margin:16px 0;font-size:15px}
+label{display:block;font-weight:bold;margin:12px 0 4px;font-size:15px}
+select,input[type=number],input[type=text]{width:100%;padding:10px;font-size:16px;border:1px solid #B9B29A;border-radius:4px;background:#fff;font-family:inherit}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.result{background:#14161A;color:#FAF8F2;padding:22px;border-radius:4px;margin:22px 0;text-align:center}
+.result .score{font-size:54px;color:#C9A227;font-weight:bold}
+.result table{background:#1E2126;color:#FAF8F2}
+.result th{background:#A6192E}
+.result td,.result th{border-color:#3A3F46}
+footer{background:#14161A;color:#B9BDC4;padding:26px 24px;font-size:13.5px;margin-top:40px}
+footer a{color:#C9A227}
+.small{font-size:13.5px;color:#555}
+ul,ol{margin:8px 0 8px 22px}
+li{margin:4px 0}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a good CRS score in 2026?","acceptedAnswer":{"@type":"Answer","text":"There is no fixed pass mark. Canadian Experience Class cut-offs in 2026 draws have been roughly 507-523, French-language draws around 382-446, and PNP draws 697-805 because nominees receive 600 additional points."}},{"@type":"Question","name":"Do job offers still give CRS points?","acceptedAnswer":{"@type":"Answer","text":"No. IRCC removed CRS points for arranged employment on 25 March 2025. A job offer can still matter for eligibility and provincial streams, but it adds no points."}}]}</script>
+</head>
+<body>
+<header class="top">
+<a class="brand" href="index.html">NORTH<span>ENTRY</span></a>
+<nav>
+<a href="crs-calculator.html">CRS Calculator</a>
+<a href="ielts-to-clb.html">IELTS to CLB</a>
+<a href="pnp.html">PNP Guide</a>
+<a href="budget-planner.html">Budget Planner</a>
+<a href="express-entry-guide.html">Express Entry Guide</a>
+</nav>
+</header>
+<div class="wrap">
+
+<h1>CRS Calculator — Express Entry points, done properly</h1>
+<p class="lede">Every cell of the official points grid: core human capital, spouse factors, skill transferability and additional points. Current rules — including the March 2025 removal of job-offer points, which many calculators still get wrong.</p>
+<form id="crsForm" onsubmit="return false">
+<h2>About you</h2>
+<div class="grid2">
+<div><label>Marital status</label><select id="spouse"><option value="0">Single / spouse is a Canadian citizen or PR / spouse not coming with me</option><option value="1">Married or common-law — spouse is coming with me (not a citizen/PR)</option></select></div>
+<div><label>Your age</label><input type="number" id="age" value="28" min="14" max="99"></div>
+<div><label>Your highest education</label><select id="edu"><option value="none">Less than secondary school</option><option value="secondary">Secondary school (high school)</option><option value="one">One-year post-secondary credential</option><option value="two">Two-year post-secondary credential</option><option value="bachelor" selected>Bachelor's degree (3+ years)</option><option value="twoplus">Two or more credentials (one 3+ years)</option><option value="masters">Master's degree</option><option value="phd">PhD / doctoral degree</option></select></div>
+<div><label>Canadian skilled work experience</label><select id="canWork"><option value="0">None / less than 1 year</option><option value="1">1 year</option><option value="2">2 years</option><option value="3">3 years</option><option value="4">4 years</option><option value="5">5 years or more</option></select></div>
+<div><label>Foreign skilled work experience (last 10 years)</label><select id="foreignWork"><option value="0">None</option><option value="1">1 or 2 years</option><option value="3" selected>3 years or more</option></select></div>
+<div><label>Certificate of qualification (skilled trade, from a Canadian province/territory)?</label><select id="cert"><option value="0">No</option><option value="1">Yes</option></select></div>
+</div>
+<h2>Language</h2>
+<div class="grid2">
+<div><label>First official language</label><select id="lang1Type"><option value="en">English</option><option value="fr">French</option></select></div>
+<div><label>Do you also have results in the second official language?</label><select id="hasLang2"><option value="0">No</option><option value="1">Yes</option></select></div>
+</div>
+<h3>First language — CLB level per ability</h3><div class="grid4"><div><label>Listening</label><select id="l10"><option value="3">CLB 3 or less</option><option value="4">CLB 4</option><option value="5">CLB 5</option><option value="6">CLB 6</option><option value="7">CLB 7</option><option value="8">CLB 8</option><option value="9" selected>CLB 9</option><option value="10">CLB 10 or more</option></select></div><div><label>Reading</label><select id="l11"><option value="3">CLB 3 or less</option><option value="4">CLB 4</option><option value="5">CLB 5</option><option value="6">CLB 6</option><option value="7">CLB 7</option><option value="8">CLB 8</option><option value="9" selected>CLB 9</option><option value="10">CLB 10 or more</option></select></div><div><label>Writing</label><select id="l12"><option value="3">CLB 3 or less</option><option value="4">CLB 4</option><option value="5">CLB 5</option><option value="6">CLB 6</option><option value="7">CLB 7</option><option value="8">CLB 8</option><option value="9" selected>CLB 9</option><option value="10">CLB 10 or more</option></select></div><div><label>Speaking</label><select id="l13"><option value="3">CLB 3 or less</option><option value="4">CLB 4</option><option value="5">CLB 5</option><option value="6">CLB 6</option><option value="7">CLB 7</option><option value="8">CLB 8</option><option value="9" selected>CLB 9</option><option value="10">CLB 10 or more</option></select></div></div>
+<div id="lang2Block" style="display:none">
+<h3>Second language — CLB level per ability</h3><div class="grid4"><div><label>Listening</label><select id="l20"><option value="3">CLB 3 or less</option><option value="4">CLB 4</option><option value="5">CLB 5</option><option value="6">CLB 6</option><option value="7">CLB 7</option><option value="8">CLB 8</option><option value="9" selected>CLB 9</option><option value="10">CLB 10 or more</option></select></div><div><label>Reading</label><select id="l21"><option value="3">CLB 3 or less</option><option value="4">CLB 4</option><option value="5">CLB 5</option><option value="6">CLB 6</option><option value="7">CLB 7</option><option value="8">CLB 8</option><option value="9" selected>CLB 9</option><option value="10">CLB 10 or more</option></select></div><div><label>Writing</label><select id="l22"><option value="3">CLB 3 or less</option><option value="4">CLB 4</option><option value="5">CLB 5</option><option value="6">CLB 6</option><option value="7">CLB 7</option><option value="8">CLB 8</option><option value="9" selected>CLB 9</option><option value="10">CLB 10 or more</option></select></div><div><label>Speaking</label><select id="l23"><option value="3">CLB 3 or less</option><option value="4">CLB 4</option><option value="5">CLB 5</option><option value="6">CLB 6</option><option value="7">CLB 7</option><option value="8">CLB 8</option><option value="9" selected>CLB 9</option><option value="10">CLB 10 or more</option></select></div></div>
+</div>
+<p class="small">Do not know your CLB levels? Convert IELTS, CELPIP or PTE scores first on the <a href="ielts-to-clb.html">IELTS to CLB page</a>.</p>
+<div id="spouseBlock" style="display:none">
+<h2>Your spouse</h2>
+<div class="grid2">
+<div><label>Spouse's highest education</label><select id="spEdu"><option value="none">Less than secondary school</option><option value="secondary">Secondary school (high school)</option><option value="one">One-year post-secondary credential</option><option value="two">Two-year post-secondary credential</option><option value="bachelor" selected>Bachelor's degree (3+ years)</option><option value="twoplus">Two or more credentials (one 3+ years)</option><option value="masters">Master's degree</option><option value="phd">PhD / doctoral degree</option></select></div>
+<div><label>Spouse's Canadian skilled work experience</label><select id="spCanWork"><option value="0">None / less than 1 year</option><option value="1">1 year</option><option value="2">2 years</option><option value="3">3 years</option><option value="4">4 years</option><option value="5">5 years or more</option></select></div>
+</div>
+<h3>Spouse's first language — CLB level per ability</h3><div class="grid4"><div><label>Listening</label><select id="sl0"><option value="3">CLB 3 or less</option><option value="4">CLB 4</option><option value="5">CLB 5</option><option value="6">CLB 6</option><option value="7">CLB 7</option><option value="8">CLB 8</option><option value="9" selected>CLB 9</option><option value="10">CLB 10 or more</option></select></div><div><label>Reading</label><select id="sl1"><option value="3">CLB 3 or less</option><option value="4">CLB 4</option><option value="5">CLB 5</option><option value="6">CLB 6</option><option value="7">CLB 7</option><option value="8">CLB 8</option><option value="9" selected>CLB 9</option><option value="10">CLB 10 or more</option></select></div><div><label>Writing</label><select id="sl2"><option value="3">CLB 3 or less</option><option value="4">CLB 4</option><option value="5">CLB 5</option><option value="6">CLB 6</option><option value="7">CLB 7</option><option value="8">CLB 8</option><option value="9" selected>CLB 9</option><option value="10">CLB 10 or more</option></select></div><div><label>Speaking</label><select id="sl3"><option value="3">CLB 3 or less</option><option value="4">CLB 4</option><option value="5">CLB 5</option><option value="6">CLB 6</option><option value="7">CLB 7</option><option value="8">CLB 8</option><option value="9" selected>CLB 9</option><option value="10">CLB 10 or more</option></select></div></div>
+</div>
+<h2>Additional points</h2>
+<div class="grid2">
+<div><label>Provincial or territorial nomination?</label><select id="pnp"><option value="0">No</option><option value="1">Yes (+600)</option></select></div>
+<div><label>Brother or sister in Canada (18+, citizen or PR)?</label><select id="sibling"><option value="0">No</option><option value="1">Yes (+15)</option></select></div>
+<div><label>Post-secondary credential earned in Canada?</label><select id="canStudy"><option value="none">None</option><option value="ca12">Credential of 1 or 2 years (+15)</option><option value="ca3">Credential of 3 years or longer (+30)</option></select></div>
+</div>
+<p style="margin-top:18px"><button class="btn" onclick="runCalc()">Calculate my score</button></p>
+</form>
+<div class="result" id="result" style="display:none">
+<p>Your estimated CRS score</p>
+<div class="score" id="totalScore">0</div>
+<table id="breakTable"></table>
+<div id="tips" style="text-align:left;margin-top:14px"></div>
+</div>
+<h2>How the score is built</h2>
+<table>
+<tr><th>Block</th><th>What counts</th><th>Maximum</th></tr>
+<tr><td>A. Core / human capital</td><td>Age, education, first + second language, Canadian work experience</td><td>500 (460 with a spouse)</td></tr>
+<tr><td>B. Spouse factors</td><td>Spouse's education, language and Canadian experience</td><td>40</td></tr>
+<tr><td>C. Skill transferability</td><td>Combinations: education × language, education × Canadian work, foreign work × language or Canadian work, trade certificate × language</td><td>100</td></tr>
+<tr><td>D. Additional points</td><td>Provincial nomination (600), French ability (25–50), Canadian study (15–30), sibling in Canada (15)</td><td>600</td></tr>
+</table>
+<div class="note">This is an estimate based on the published CRS criteria. Only the score inside your actual Express Entry profile counts. Figures verified against IRCC's published criteria, October 2026.</div>
+<script src="crs.js"></script>
+<script>
+function gv(id) { return document.getElementById(id).value; }
+function arr(p) { return [0,1,2,3].map(i => parseInt(gv(p + i))); }
+function runCalc() {
+  const has2 = gv('hasLang2') === '1';
+  const o = {
+    spouse: gv('spouse') === '1', age: parseInt(gv('age')) || 0, edu: gv('edu'),
+    lang1Type: gv('lang1Type'), lang1: arr('l1'),
+    lang2: has2 ? arr('l2') : null, lang2Type: gv('lang1Type') === 'en' ? 'fr' : 'en',
+    canWork: parseInt(gv('canWork')), foreignWork: parseInt(gv('foreignWork')),
+    cert: gv('cert') === '1',
+    spEdu: gv('spEdu'), spLang: arr('sl'), spCanWork: parseInt(gv('spCanWork')),
+    pnp: gv('pnp') === '1', sibling: gv('sibling') === '1', canStudy: gv('canStudy')
+  };
+  const r = calcCRS(o), L = r.lines;
+  const rows = [['Age', L.age], ['Education', L.edu], ['First language', L.lang1], ['Second language', L.lang2], ['Canadian work experience', L.canw]];
+  if (o.spouse) rows.push(['Spouse — education', L.spEdu], ['Spouse — language', L.spLang], ['Spouse — Canadian work', L.spCanw]);
+  rows.push(['Transferability — education × language', L.tEduLang], ['Transferability — education × Canadian work', L.tEduCan],
+    ['Transferability — foreign work × language', L.tForLang], ['Transferability — foreign work × Canadian work', L.tForCan],
+    ['Transferability — trade certificate × language', L.tCert],
+    ['Additional — provincial nomination', L.pnp], ['Additional — sibling', L.sibling], ['Additional — Canadian study', L.canStudy], ['Additional — French bonus', L.french]);
+  document.getElementById('breakTable').innerHTML = rows.map(x => '<tr><td>' + x[0] + '</td><td><strong>' + x[1] + '</strong></td></tr>').join('') +
+    '<tr><td><strong>TOTAL</strong></td><td><strong>' + r.total + '</strong></td></tr>';
+  let tips = [];
+  if (o.lang1.some(c => c < 9)) tips.push('Reaching <strong>CLB 9 in all four</strong> first-language abilities is usually the single biggest upgrade: it raises language points directly and unlocks the top transferability tiers.');
+  if (!o.pnp) tips.push('A <strong>provincial nomination adds 600 points</strong> and effectively guarantees an invitation. See the <a href="pnp.html" style="color:#C9A227">PNP guide</a>.');
+  if (o.age >= 30) tips.push('Age points fall every year after 29 — if you are close to an invitation pathway, time is literally points.');
+  if (o.foreignWork === 0 && o.canWork === 0) tips.push('Skilled work experience powers the transferability block (up to 100 points). Even foreign experience counts when paired with strong language scores.');
+  if (!o.lang2 || o.lang2.some(c => c < 7)) tips.push('A second official language adds points twice: up to 24 directly, plus a French bonus of 25–50 for NCLC 7+ — and French draws have much lower cut-offs.');
+  document.getElementById('tips').innerHTML = tips.length ? '<h3 style="color:#C9A227">How you could raise this score</h3><ul>' + tips.map(t => '<li>' + t + '</li>').join('') + '</ul>' : '';
+  document.getElementById('totalScore').textContent = r.total;
+  document.getElementById('result').style.display = 'block';
+  document.getElementById('result').scrollIntoView({behavior: 'smooth'});
+}
+document.getElementById('spouse').addEventListener('change', e => document.getElementById('spouseBlock').style.display = e.target.value === '1' ? 'block' : 'none');
+document.getElementById('hasLang2').addEventListener('change', e => document.getElementById('lang2Block').style.display = e.target.value === '1' ? 'block' : 'none');
+</script>
+
+</div>
+<footer>
+<p><strong>Disclaimer:</strong> NorthEntry is a free, unofficial information and calculator website. It is <strong>not</strong> affiliated with Immigration, Refugees and Citizenship Canada (IRCC) or the Government of Canada. Points rules, fees and draw results change — always confirm your details on the official website, <a href="https://www.canada.ca" rel="noopener">canada.ca</a>, before applying. This site does not provide immigration advice or representation.</p>
+<p>© 2026 NorthEntry. All content is original.</p>
+</footer>
+</body>
+</html>

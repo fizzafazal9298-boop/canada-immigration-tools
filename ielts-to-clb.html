@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IELTS to CLB Converter — Canada PR Band Conversion | NorthEntry</title>
+<meta name="description" content="Convert IELTS General Training bands to CLB levels for Express Entry, with the full conversion table and a per-ability converter.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Georgia,'Times New Roman',serif;background:#FAF8F2;color:#14161A;line-height:1.65}
+a{color:#A6192E}
+header.top{background:#14161A;color:#FAF8F2;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.brand{font-size:24px;letter-spacing:2px;font-weight:bold;color:#FAF8F2;text-decoration:none}
+.brand span{color:#C9A227}
+nav a{color:#FAF8F2;text-decoration:none;margin-left:18px;font-size:15px}
+nav a:hover{color:#C9A227}
+.wrap{max-width:980px;margin:0 auto;padding:28px 20px 60px}
+h1{font-size:36px;line-height:1.2;margin:14px 0 10px}
+h2{font-size:25px;margin:30px 0 10px;border-bottom:2px solid #C9A227;padding-bottom:5px}
+h3{font-size:19px;margin:20px 0 6px}
+p{margin:8px 0}
+.lede{font-size:18px;color:#333}
+.btn{display:inline-block;background:#A6192E;color:#fff;padding:13px 26px;border-radius:4px;text-decoration:none;font-size:17px;margin:12px 8px 12px 0;border:none;cursor:pointer}
+.btn.gold{background:#C9A227;color:#14161A}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px;margin:20px 0}
+.card{background:#fff;border:1px solid #E3DCC8;border-top:4px solid #A6192E;padding:18px;border-radius:4px}
+.card h3{margin-top:0}
+table{border-collapse:collapse;width:100%;margin:14px 0;background:#fff}
+th,td{border:1px solid #D8D2BE;padding:8px 10px;text-align:left;font-size:15px}
+th{background:#14161A;color:#FAF8F2}
+.note{background:#F3EDD8;border-left:4px solid #C9A227;padding:12px 16px;margin:16px 0;font-size:15px}
+.warn{background:#F9E8E8;border-left:4px solid #A6192E;padding:12px 16px;margin:16px 0;font-size:15px}
+label{display:block;font-weight:bold;margin:12px 0 4px;font-size:15px}
+select,input[type=number],input[type=text]{width:100%;padding:10px;font-size:16px;border:1px solid #B9B29A;border-radius:4px;background:#fff;font-family:inherit}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.result{background:#14161A;color:#FAF8F2;padding:22px;border-radius:4px;margin:22px 0;text-align:center}
+.result .score{font-size:54px;color:#C9A227;font-weight:bold}
+.result table{background:#1E2126;color:#FAF8F2}
+.result th{background:#A6192E}
+.result td,.result th{border-color:#3A3F46}
+footer{background:#14161A;color:#B9BDC4;padding:26px 24px;font-size:13.5px;margin-top:40px}
+footer a{color:#C9A227}
+.small{font-size:13.5px;color:#555}
+ul,ol{margin:8px 0 8px 22px}
+li{margin:4px 0}
+</style>
+
+</head>
+<body>
+<header class="top">
+<a class="brand" href="index.html">NORTH<span>ENTRY</span></a>
+<nav>
+<a href="crs-calculator.html">CRS Calculator</a>
+<a href="ielts-to-clb.html">IELTS to CLB</a>
+<a href="pnp.html">PNP Guide</a>
+<a href="budget-planner.html">Budget Planner</a>
+<a href="express-entry-guide.html">Express Entry Guide</a>
+</nav>
+</header>
+<div class="wrap">
+
+<h1>IELTS to CLB converter</h1>
+<p class="lede">Canada scores language in Canadian Language Benchmarks (CLB). Your IELTS bands are converted ability by ability — and because CRS points also work ability by ability, one weak skill can cost you twice.</p>
+<h2>Convert your IELTS General Training bands</h2>
+<div class="grid4">
+<div><label>Listening</label><input type="number" id="b0" step="0.5" min="0" max="9" value="8.0"></div>
+<div><label>Reading</label><input type="number" id="b1" step="0.5" min="0" max="9" value="7.0"></div>
+<div><label>Writing</label><input type="number" id="b2" step="0.5" min="0" max="9" value="7.0"></div>
+<div><label>Speaking</label><input type="number" id="b3" step="0.5" min="0" max="9" value="7.0"></div>
+</div>
+<p><button class="btn" onclick="conv()">Convert to CLB</button></p>
+<div class="result" id="convResult" style="display:none"><p>Your CLB levels</p><div class="score" id="clbOut" style="font-size:30px"></div>
+<p id="clbNote"></p></div>
+<h2>The full IELTS → CLB table (General Training)</h2>
+<table>
+<tr><th>CLB</th><th>Listening</th><th>Reading</th><th>Writing</th><th>Speaking</th></tr>
+<tr><td>10</td><td>8.5 – 9.0</td><td>8.0 – 9.0</td><td>7.5 – 9.0</td><td>7.5 – 9.0</td></tr>
+<tr><td>9</td><td>8.0</td><td>7.0</td><td>7.0</td><td>7.0</td></tr>
+<tr><td>8</td><td>7.5</td><td>6.5</td><td>6.5</td><td>6.5</td></tr>
+<tr><td>7</td><td>6.0</td><td>6.0</td><td>6.0</td><td>6.0</td></tr>
+<tr><td>6</td><td>5.5</td><td>5.0</td><td>5.5</td><td>5.5</td></tr>
+<tr><td>5</td><td>5.0</td><td>4.0</td><td>5.0</td><td>5.0</td></tr>
+<tr><td>4</td><td>4.5</td><td>3.5</td><td>4.0</td><td>4.0</td></tr>
+</table>
+<p class="small">Reading is the strictest scale: a 6.0 in reading is CLB 7, while a 6.0 in listening is also CLB 7 — but writing 6.0 is only CLB 7 too, and the jump to CLB 9 needs 7.0 in reading, writing and speaking, and 8.0 in listening.</p>
+<h2>Other tests</h2>
+<ul>
+<li><strong>CELPIP-General:</strong> the score for each ability <em>is</em> the CLB level (a CELPIP 9 = CLB 9). Scores below 4 sit under CLB 4.</li>
+<li><strong>PTE Core:</strong> accepted for Express Entry, with its own equivalency chart published by IRCC — check your exact scores against the chart on canada.ca.</li>
+<li><strong>French:</strong> TEF Canada and TCF Canada results convert to NCLC levels, the French equivalent of CLB. NCLC 7 in all four abilities unlocks the French additional points.</li>
+</ul>
+<div class="note">CLB 9 in all four abilities is the magic line for most candidates: it maximises the education × language transferability tier. Once you know your CLB levels, put them into the <a href="crs-calculator.html">CRS calculator</a>.</div>
+<script>
+const TH = [
+ [[8.5,10],[8,9],[7.5,8],[6,7],[5.5,6],[5,5],[4.5,4]],
+ [[8,10],[7,9],[6.5,8],[6,7],[5,6],[4,5],[3.5,4]],
+ [[7.5,10],[7,9],[6.5,8],[6,7],[5.5,6],[5,5],[4,4]],
+ [[7.5,10],[7,9],[6.5,8],[6,7],[5.5,6],[5,5],[4,4]]
+];
+function toCLB(i, v) { for (const [min, clb] of TH[i]) if (v >= min) return clb; return 3; }
+function conv() {
+  const names = ['Listening', 'Reading', 'Writing', 'Speaking'];
+  const out = [0,1,2,3].map(i => { const v = parseFloat(document.getElementById('b' + i).value) || 0; return names[i] + ': CLB ' + toCLB(i, v); });
+  document.getElementById('clbOut').textContent = out.join('  ·  ');
+  const all9 = [0,1,2,3].every(i => toCLB(i, parseFloat(document.getElementById('b' + i).value) || 0) >= 9);
+  document.getElementById('clbNote').textContent = all9 ? 'CLB 9 or higher in all four — you unlock the top transferability tiers. Run the CRS calculator.' : 'Below CLB 9 in at least one ability — that ability is holding back both your language points and your transferability points.';
+  document.getElementById('convResult').style.display = 'block';
+}
+</script>
+
+</div>
+<footer>
+<p><strong>Disclaimer:</strong> NorthEntry is a free, unofficial information and calculator website. It is <strong>not</strong> affiliated with Immigration, Refugees and Citizenship Canada (IRCC) or the Government of Canada. Points rules, fees and draw results change — always confirm your details on the official website, <a href="https://www.canada.ca" rel="noopener">canada.ca</a>, before applying. This site does not provide immigration advice or representation.</p>
+<p>© 2026 NorthEntry. All content is original.</p>
+</footer>
+</body>
+</html>

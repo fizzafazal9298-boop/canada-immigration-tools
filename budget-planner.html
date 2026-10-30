@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canada Immigration Budget Planner — Real Cost Calculator | NorthEntry</title>
+<meta name="description" content="Add up the true cost of immigrating to Canada: tests, ECA, IRCC fees, proof of funds, flights and settlement money.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Georgia,'Times New Roman',serif;background:#FAF8F2;color:#14161A;line-height:1.65}
+a{color:#A6192E}
+header.top{background:#14161A;color:#FAF8F2;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.brand{font-size:24px;letter-spacing:2px;font-weight:bold;color:#FAF8F2;text-decoration:none}
+.brand span{color:#C9A227}
+nav a{color:#FAF8F2;text-decoration:none;margin-left:18px;font-size:15px}
+nav a:hover{color:#C9A227}
+.wrap{max-width:980px;margin:0 auto;padding:28px 20px 60px}
+h1{font-size:36px;line-height:1.2;margin:14px 0 10px}
+h2{font-size:25px;margin:30px 0 10px;border-bottom:2px solid #C9A227;padding-bottom:5px}
+h3{font-size:19px;margin:20px 0 6px}
+p{margin:8px 0}
+.lede{font-size:18px;color:#333}
+.btn{display:inline-block;background:#A6192E;color:#fff;padding:13px 26px;border-radius:4px;text-decoration:none;font-size:17px;margin:12px 8px 12px 0;border:none;cursor:pointer}
+.btn.gold{background:#C9A227;color:#14161A}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px;margin:20px 0}
+.card{background:#fff;border:1px solid #E3DCC8;border-top:4px solid #A6192E;padding:18px;border-radius:4px}
+.card h3{margin-top:0}
+table{border-collapse:collapse;width:100%;margin:14px 0;background:#fff}
+th,td{border:1px solid #D8D2BE;padding:8px 10px;text-align:left;font-size:15px}
+th{background:#14161A;color:#FAF8F2}
+.note{background:#F3EDD8;border-left:4px solid #C9A227;padding:12px 16px;margin:16px 0;font-size:15px}
+.warn{background:#F9E8E8;border-left:4px solid #A6192E;padding:12px 16px;margin:16px 0;font-size:15px}
+label{display:block;font-weight:bold;margin:12px 0 4px;font-size:15px}
+select,input[type=number],input[type=text]{width:100%;padding:10px;font-size:16px;border:1px solid #B9B29A;border-radius:4px;background:#fff;font-family:inherit}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.result{background:#14161A;color:#FAF8F2;padding:22px;border-radius:4px;margin:22px 0;text-align:center}
+.result .score{font-size:54px;color:#C9A227;font-weight:bold}
+.result table{background:#1E2126;color:#FAF8F2}
+.result th{background:#A6192E}
+.result td,.result th{border-color:#3A3F46}
+footer{background:#14161A;color:#B9BDC4;padding:26px 24px;font-size:13.5px;margin-top:40px}
+footer a{color:#C9A227}
+.small{font-size:13.5px;color:#555}
+ul,ol{margin:8px 0 8px 22px}
+li{margin:4px 0}
+</style>
+
+</head>
+<body>
+<header class="top">
+<a class="brand" href="index.html">NORTH<span>ENTRY</span></a>
+<nav>
+<a href="crs-calculator.html">CRS Calculator</a>
+<a href="ielts-to-clb.html">IELTS to CLB</a>
+<a href="pnp.html">PNP Guide</a>
+<a href="budget-planner.html">Budget Planner</a>
+<a href="express-entry-guide.html">Express Entry Guide</a>
+</nav>
+</header>
+<div class="wrap">
+
+<h1>Immigration budget planner</h1>
+<p class="lede">Immigrating costs more than the visa fee. Put your own figures in — every family's numbers differ — and see the real total before you start, in Canadian dollars.</p>
+<table>
+<tr><th>Cost</th><th>Amount (CAD)</th></tr>
+<tr><td>Language test (per adult) — IELTS/CELPIP/PTE or TEF/TCF<div class="small">Budget for one retake; most people need two attempts.</div></td><td style="width:180px"><input type="number" class="amt" value="0" min="0"></td></tr>
+<tr><td>Educational Credential Assessment (ECA) — per person with foreign credentials<div class="small"></div></td><td style="width:180px"><input type="number" class="amt" value="0" min="0"></td></tr>
+<tr><td>Passport renewals, photos, translations & notarisation<div class="small"></div></td><td style="width:180px"><input type="number" class="amt" value="0" min="0"></td></tr>
+<tr><td>IRCC processing fee (per adult)<div class="small">Check the current figure on canada.ca — fees change.</div></td><td style="width:180px"><input type="number" class="amt" value="0" min="0"></td></tr>
+<tr><td>Right of Permanent Residence Fee (per adult)<div class="small"></div></td><td style="width:180px"><input type="number" class="amt" value="0" min="0"></td></tr>
+<tr><td>Biometrics (per person / family cap applies)<div class="small"></div></td><td style="width:180px"><input type="number" class="amt" value="0" min="0"></td></tr>
+<tr><td>Medical exam (per person)<div class="small">Panel physician fees vary by country.</div></td><td style="width:180px"><input type="number" class="amt" value="0" min="0"></td></tr>
+<tr><td>Police certificates (per country lived in)<div class="small"></div></td><td style="width:180px"><input type="number" class="amt" value="0" min="0"></td></tr>
+<tr><td>Proof of funds — settlement money you must SHOW (still your money)<div class="small">The required amount depends on family size and is updated by IRCC — enter the current figure from canada.ca.</div></td><td style="width:180px"><input type="number" class="amt" value="0" min="0"></td></tr>
+<tr><td>Flights for the family<div class="small"></div></td><td style="width:180px"><input type="number" class="amt" value="0" min="0"></td></tr>
+<tr><td>First 3 months in Canada (rent deposit, basics, buffer)<div class="small">The line everyone under-budgets. Be honest here.</div></td><td style="width:180px"><input type="number" class="amt" value="0" min="0"></td></tr>
+<tr><td><strong>TOTAL</strong></td><td><strong id="grandTotal">$0</strong></td></tr>
+</table>
+<div class="warn">Government fees and proof-of-funds amounts change regularly. Enter the figures that apply to you today from <strong>canada.ca</strong> — this planner deliberately stores no official amounts, so it can never quietly go out of date.</div>
+<h2>Three budgeting truths</h2>
+<ul>
+<li><strong>Proof of funds is not a fee</strong> — it stays your money, but you must show it, untouched, when you apply and when you land.</li>
+<li><strong>Language tests are a recurring cost</strong> until you hit your target CLB. Budget the retake now, not after the disappointment.</li>
+<li><strong>The settlement buffer decides your first year.</strong> Candidates who land with three calm months of money make better job decisions than candidates who must take the first offer.</li>
+</ul>
+<script>
+function upd() { let s = 0; document.querySelectorAll('.amt').forEach(i => s += parseFloat(i.value) || 0); document.getElementById('grandTotal').textContent = '$' + s.toLocaleString('en-CA'); }
+document.querySelectorAll('.amt').forEach(i => i.addEventListener('input', upd));
+</script>
+
+</div>
+<footer>
+<p><strong>Disclaimer:</strong> NorthEntry is a free, unofficial information and calculator website. It is <strong>not</strong> affiliated with Immigration, Refugees and Citizenship Canada (IRCC) or the Government of Canada. Points rules, fees and draw results change — always confirm your details on the official website, <a href="https://www.canada.ca" rel="noopener">canada.ca</a>, before applying. This site does not provide immigration advice or representation.</p>
+<p>© 2026 NorthEntry. All content is original.</p>
+</footer>
+</body>
+</html>

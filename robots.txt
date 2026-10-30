@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://fizzafazal9298-boop.github.io/canada-immigration-tools/sitemap.xml
